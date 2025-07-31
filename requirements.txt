@@ -1,16 +1,15 @@
 fastapi
 uvicorn
 python-dotenv
-python-multipart
 httpx
-fitz  # alias of PyMuPDF
-PyMuPDF
+pydantic
+pdfplumber
 langchain
 langchain-core
 langchain-community
 langchain-cli
 langchain-groq
 langchain-huggingface
-sentence-transformers
 faiss-cpu
-pdfplumber
+sentence-transformers
+pymupdf==1.22.3  # ✅ correct package name
