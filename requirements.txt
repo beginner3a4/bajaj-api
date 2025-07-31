@@ -1,7 +1,8 @@
 fastapi
-uvicorn
-python-multipart
+uvicorn[standard]
 python-dotenv
+httpx
+PyMuPDF  # this provides the `fitz` module
 langchain
 langchain-core
 langchain-community
@@ -9,4 +10,3 @@ langchain-cli
 langchain-groq
 langchain-huggingface
 faiss-cpu
-pdfplumber
