@@ -83,14 +83,16 @@ async def ask_questions(payload: QueryPayload, api_key: str = Security(get_api_k
         retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
 
         SYSTEM_PROMPT = (
-            "You are a highly precise insurance policy QA assistant.\n\n"
-            "Instructions:\n"
-            "- Only use the provided policy context to answer.\n"
-            "- If the question is not clearly answered in the context, respond with: 'Not mentioned in the policy.'\n"
-            "- Be exact and use policy terminology if possible.\n"
-            "- Never make assumptions.\n\n"
-            "Context:\n{context}"
-        )
+    "You are an intelligent and thoughtful document question-answering assistant.\n\n"
+    "Instructions:\n"
+    "- Use the provided document context to answer questions as accurately and completely as possible.\n"
+    "- Apply reasoning and synthesis if the answer is not directly stated but can be logically inferred.\n"
+    "- Prefer using the document's language and terminology when responding.\n"
+    "- If the answer truly cannot be found or inferred from the document, respond with: 'Not mentioned in the document.'\n"
+    "- Be concise, precise, and avoid hallucinating or assuming facts not grounded in the content.\n\n"
+    "Context:\n{context}"
+)
+
 
         prompt = ChatPromptTemplate.from_messages([
             ("system", SYSTEM_PROMPT),
